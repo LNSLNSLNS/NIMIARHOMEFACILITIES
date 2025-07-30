@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIMIAR - Home Facilities | Você no Centro de Tudo</title>
+    <meta name="description" content="NIMIAR - Cuidamos do seu patrimônio com excelência. Serviços de manutenção residencial personalizados em Alphaville e região.">
+    <meta name="keywords" content="manutenção residencial, jardinagem, piscina, reparos, Alphaville, casa, patrimônio">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2F4F4F;
+            --secondary-color: #E8E8E8;
+            --accent-color: #2D5A27;
+            --light-color: #FFFFFF;
+            --gray-color: #F5F5F5;
+            --dark-gray: #333333;
+            --gradient-primary: linear-gradient(135deg, #2F4F4F 0%, #3a5f5f 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 90px; /* Espaço para o header fixo */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--gradient-primary);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(47, 79, 79, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(232, 232, 232, 0.3);
+            position: relative;
+        }
+        
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 24px;
+            background: white;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        
+        .logo-text {
+            color: var(--light-color);
+        }
+        
+        .logo-name {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo-tagline {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: -5px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-menu a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - 90px); /* Ajustar altura para compensar padding do body */
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: -90px; /* Compensar o padding-top do body */
+            padding-top: 90px; /* Manter espaçamento interno */
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(232,232,232,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            color: var(--light-color);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--light-color);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        /* Cliente no Centro - Elemento Visual */
+        .client-center-visual {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        
+        .orbit {
+            position: absolute;
+            border: 2px solid rgba(232, 232, 232, 0.2);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .orbit-1 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 15s;
+        }
+        
+        .orbit-2 {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 25s;
+        }
+        
+        .orbit-3 {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 35s;
+        }
+        
+        .client-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        
+        .client-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+        }
+        
+        .service-point {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .service-point:hover {
+            transform: scale(1.1);
+            background: var(--light-color);
+        }
+        
+        .service-point i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .service-point-1 {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0s;
+        }
+        
+        .service-point-2 {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            animation-delay: 0.5s;
+        }
+        
+        .service-point-3 {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 1s;
+        }
+        
+        .service-point-4 {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            animation-delay: 1.5s;
+        }
+        
+        .service-point-5 {
+            top: 30%;
+            right: 30%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Seções */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Sobre */
+        .about {
+            background: var(--light-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-text h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .feature-text p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Pacotes */
+        .packages {
+            background: var(--gray-color);
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .package-card {
+            background: var(--light-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(47, 79, 79, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff6b35;
+            color: var(--light-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .package-name {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .package-period {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-bottom: 30px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .package-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .package-features i {
+            color: var(--accent-color);
+            width: 20px;
+        }
+        
+        .package-economy {
+            background: rgba(45, 90, 39, 0.1);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Como Funciona */
+        .how-it-works {
+            background: var(--light-color);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .step-item {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: calc(100% - 20px);
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+            opacity: 0.3;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .step-description {
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        /* Depoimentos */
+        .testimonials {
+            background: var(--gray-color);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: var(--light-color);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-weight: 600;
+        }
+        
+        .author-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Contato */
+        .contact {
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+        
+        .contact .section-title {
+            color: var(--light-color);
+        }
+        
+        .contact .section-subtitle {
+            color: var(--light-color);
+            opacity: 0.8;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(232, 232, 232, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+        
+        .contact-text h4 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p {
+            opacity: 0.8;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: var(--light-color);
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--light-color);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: var(--light-color);
+            opacity: 0.8;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            padding-top: 30px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+                gap: 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .client-center-visual {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .orbit-1 {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .orbit-2 {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .orbit-3 {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .client-center {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .client-icon {
+                font-size: 30px;
+            }
+            
+            .service-point {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .service-point i {
+                font-size: 16px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-item:not(:last-child)::after {
+                display: none;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .package-card {
+                padding: 30px 20px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">
+                        <div class="logo-name">NIMIAR</div>
+                        <div class="logo-tagline">HOME FACILITIES</div>
+                    </div>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#pacotes">Pacotes</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Você no Centro de Tudo</h1>
+                    <p class="hero-subtitle">Cuidamos do seu patrimônio com excelência, para que você tenha mais tempo para o que realmente importa</p>
+                    <p class="hero-description">
+                        A NIMIAR é especializada em gestão integrada de Home Facilities para propriedades de alto padrão em Alphaville e região. Nossa equipe própria cuida de jardinagem, piscina, pequenos reparos e muito mais.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#pacotes" class="btn btn-primary">
+                            <i class="fas fa-box"></i>
+                            Ver Pacotes
+                        </a>
+                        <a href="#contato" class="btn btn-secondary">
+                            <i class="fas fa-phone"></i>
+                            Falar Conosco
+                        </a>
+                    </div>
+                </div>
+                <div class="client-center-visual">
+                    <div class="orbit orbit-1"></div>
+                    <div class="orbit orbit-2"></div>
+                    <div class="orbit orbit-3"></div>
+                    
+                    <div class="client-center">
+                        <i class="fas fa-user client-icon"></i>
+                    </div>
+                    
+                    <div class="service-point service-point-1">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="service-point service-point-2">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <div class="service-point service-point-3">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-point service-point-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="service-point service-point-5">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre a NIMIAR</h2>
+                <p class="section-subtitle">
+                    Somos a primeira empresa especializada em gestão integrada de Home Facilities para propriedades de alto padrão em Alphaville e região
+                </p>
+            </div>
+            <div class="about-content">
+                <div>
+                    <p class="about-text">
+                        A NIMIAR nasceu da necessidade de oferecer um serviço completo e integrado de manutenção residencial para proprietários exigentes. Nossa missão é simplificar sua vida, cuidando de todos os aspectos da manutenção da sua propriedade com transparência, qualidade e tranquilidade.
+                    </p>
+                    <p class="about-text">
+                        Com foco exclusivo em Alphaville e região, desenvolvemos uma expertise única no cuidado de propriedades de alto padrão, oferecendo serviços personalizados que atendem às necessidades específicas de cada cliente.
+                    </p>
+                </div>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Equipe Própria</h4>
+                            <p>Profissionais treinados e qualificados, sem terceirização</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Foco em Alphaville</h4>
+                            <p>Especialização na região com conhecimento local</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Atendimento Ágil</h4>
+                            <p>Resposta rápida e eficiente para suas necessidades</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Qualidade Garantida</h4>
+                            <p>Padrão de excelência em todos os serviços</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pacotes -->
+    <section id="pacotes" class="section packages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Pacotes</h2>
+                <p class="section-subtitle">
+                    Escolha o pacote ideal para sua propriedade. Todos incluem nossa garantia de qualidade e atendimento personalizado.
+                </p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3 class="package-name">Pacote Básico</h3>
+                    <div class="package-price">R$ 2.199</div>
+                    <div class="package-period">por mês</div>
+                    <div class="package-economy">Economia de até 12%</div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Jardinagem completa</li>
+                        <li><i class="fas fa-check"></i> Tratamento e manutenção de piscina</li>
+                        <li><i class="fas fa-check"></i> Relatório mensal de serviços</li>
+                        <li><i class="fas fa-check"></i> Pequenos reparos elétricos</li>
+                        <li><i class="fas fa-check"></i> Pequenos reparos hidráulicos</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary">Contratar</a>
+                </div>
+                
+                <div class="package-card">
+                    <div class="package-badge">MAIS VENDIDO</div>
+                    <h3 class="package-name">Pacote Médio</h3>
+                    <div class="package-price">R$ 3.499</div>
+                    <div class="package-period">por mês</div>
+                    <div class="package-economy">Economia de até 15,1%</div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Tudo do Pacote Básico</li>
+                        <li><i class="fas fa-check"></i> Limpeza de calhas (2x por ano)</li>
+                        <li><i class="fas fa-check"></i> Limpeza de caixa d'água (2x por ano)</li>
+                        <li><i class="fas fa-check"></i> Limpeza de ar-condicionado (4x por ano)</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary">Contratar</a>
+                </div>
+                
+                <div class="package-card">
+                    <h3 class="package-name">Pacote Premium</h3>
+                    <div class="package-price">R$ 5.999</div>
+                    <div class="package-period">por mês</div>
+                    <div class="package-economy">Economia de até 15,9%</div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Tudo do Pacote Médio</li>
+                        <li><i class="fas fa-check"></i> Reparo de trincas e pequenas pinturas</li>
+                        <li><i class="fas fa-check"></i> Manutenção de bomba de piscina</li>
+                        <li><i class="fas fa-check"></i> Limpeza de sofás e tapetes (2x por ano)</li>
+                        <li><i class="fas fa-check"></i> Limpeza de sistema fotovoltaico</li>
+                        <li><i class="fas fa-check"></i> Lavagem de veículo (semanal)</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary">Contratar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section id="como-funciona" class="section how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Como Funciona</h2>
+                <p class="section-subtitle">
+                    Um processo simples e transparente para cuidar da sua propriedade
+                </p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Contato Inicial</h3>
+                    <p class="step-description">
+                        Entre em contato conosco via WhatsApp ou telefone para conhecer nossos serviços
+                    </p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Visita Técnica</h3>
+                    <p class="step-description">
+                        Agendamos uma visita gratuita para avaliar sua propriedade e suas necessidades
+                    </p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Proposta Personalizada</h3>
+                    <p class="step-description">
+                        Elaboramos uma proposta sob medida com o pacote ideal para sua propriedade
+                    </p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Início dos Serviços</h3>
+                    <p class="step-description">
+                        Após a aprovação, iniciamos os cuidados com cronograma definido e equipe dedicada
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+                <p class="section-subtitle">
+                    A satisfação de quem confia na NIMIAR
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        "A NIMIAR transformou completamente a gestão da minha casa. Agora tenho mais tempo para a família e a tranquilidade de saber que tudo está sendo cuidado com excelência."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Ana Silva</h4>
+                            <p>Moradora de Alphaville</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        "Profissionalismo e qualidade em cada serviço. A equipe é pontual, educada e sempre deixa tudo impecável. Recomendo sem hesitar."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RM</div>
+                        <div class="author-info">
+                            <h4>Ricardo Martins</h4>
+                            <p>Empresário</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        "Finalmente encontrei uma empresa que entende as necessidades de uma propriedade de alto padrão. O atendimento é excepcional."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JF</div>
+                        <div class="author-info">
+                            <h4>Juliana Ferreira</h4>
+                            <p>Arquiteta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Entre em Contato</h2>
+                <p class="section-subtitle">
+                    Estamos prontos para cuidar da sua propriedade. Fale conosco!
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telefone</h4>
+                            <p>(11) 97491-8049</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>E-mail</h4>
+                            <p>atendimento@nimiar.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Área de Atendimento</h4>
+                            <p>Alphaville e Região</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5511974918049" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Falar no WhatsApp
+                    </a>
+                </div>
+                <div class="contact-form">
+                    <h3>Solicite um Orçamento</h3>
+                    <p>Preencha o formulário e entraremos em contato em até 24 horas</p>
+                    <!-- Aqui você pode adicionar um formulário de contato se desejar -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NIMIAR</h3>
+                    <p>Especialistas em gestão integrada de Home Facilities para propriedades de alto padrão em Alphaville e região.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="#pacotes">Pacote Básico</a></li>
+                        <li><a href="#pacotes">Pacote Médio</a></li>
+                        <li><a href="#pacotes">Pacote Premium</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#pacotes">Pacotes</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>📞 (11) 97491-8049</p>
+                    <p>📧 atendimento@nimiar.com</p>
+                    <p>📍 Alphaville e Região</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NIMIAR Home Facilities. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // WhatsApp button functionality
+        document.querySelectorAll('.whatsapp-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços da NIMIAR.');
+                const whatsappUrl = `https://wa.me/5511974918049?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+
+        // Menu mobile (funcionalidade corrigida)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fechar menu mobile ao clicar em um link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navMenu = document.querySelector('.nav-menu');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
